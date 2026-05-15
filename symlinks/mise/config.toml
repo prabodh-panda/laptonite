@@ -5,3 +5,4 @@ trusted_config_paths = [
 
 [tools]
 node = "22.13.1"
+ruby = "4.0.1"
