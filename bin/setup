@@ -98,6 +98,9 @@ mkdir -p "$LAPTONITED/symlinks/pi/agent/extensions"
 link_force "$LAPTONITED/symlinks/pi/agent/settings.json"    "$HOME/.pi/agent/settings.json"
 link_force "$LAPTONITED/symlinks/pi/agent/extensions/wezterm-tab-color.ts"    "$HOME/.pi/agent/extensions/wezterm-tab-color.ts"
 
+mkdir -p "$HOME/.config/cmux"
+link_force "$LAPTONITED/symlinks/cmux/cmux.json"    "$HOME/.config/cmux/cmux.json"
+
 echo_header_done
 
 echo_header "Setting up homebrew"
@@ -268,12 +271,6 @@ export MISE_TRUSTED_CONFIG_PATHS="$HOME/code"
 
 # mise needs it to compile Ruby properly
 export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(abrew --prefix libyaml)"
-
-echo "Deleting and cloning neetob repository"
-NEETOZONED="$(cd "$DEVBOXD/.." && pwd)/neetozone"
-mkdir -p "$NEETOZONED"
-rm -rf "$NEETOZONED/neetob"
-git clone git@github.com:neetozone/neetob.git "$NEETOZONED/neetob"
 
 echo ""
 echo "You are all done."
